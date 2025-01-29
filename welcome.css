@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.App {
+  width: 100%;
+  height: 100vh;
+}
+
+
+video {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+/* HERO PAGE CSS */
+
+.hero-title {
+    font-size: 60px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+  .hero-subtitle {
+  padding-left: 15%;
+  padding-right: 15%;
+  }
+  
+  .herovideo-mask {
+    backdrop-filter: contrast(100%) brightness(50%) saturate(140%) sepia(0%) hue-rotate(0deg) grayscale(0%) invert(0%) blur(5px);
+    mix-blend-mode: normal;
+    background: rgba(0, 0, 0, 0.0);
+    opacity: 1;
+  }
+  
+  .title-text {
+    color: white;
+  }
+  .hero-text-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 9999; 
+    color: white; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+  
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  .hero-nav {
+    background: rgb(0, 0, 0);
+    color: white;
+  }
+  
+
+  :root {
+    --animate-delay: 0.5s;
+  }
+  /* END OF HERO PAGE CSS */
