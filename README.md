@@ -1,65 +1,106 @@
-# [Start Bootstrap - SB Admin 2](https://startbootstrap.com/theme/sb-admin-2/)
+# Calisthenics Admin Setup Guide
 
-[SB Admin 2](https://startbootstrap.com/theme/sb-admin-2/) is an open source admin dashboard theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/).
+This guide will walk you through setting up the Calisthenics Admin system on your local machine using XAMPP.
 
-For the legacy Bootstrap 3 version of this theme, you can view the [last stable release](https://github.com/StartBootstrap/startbootstrap-sb-admin-2/releases/tag/v3.3.7%2B1) of SB Admin 2 for Bootstrap 3.
+---
+
+## Prerequisites
+
+- **XAMPP**: Installed and running on your machine.
+- **Project Files**: The Calisthenics Admin project files, including the `conn.php` file and the database SQL file.
+
+---
+
+## Step 1: Configure `conn.php`
+
+1. Locate the `conn.php` file in your project (usually in the root or `config` folder).
+2. Open the file in a text editor and update the database connection settings:
+
+    ```php
+    <?php
+    // Database connection settings
+    $servername = "localhost";  // Server name (usually 'localhost' if using XAMPP)
+    $username = "root";         // Default username for XAMPP
+    $password = "";             // Default password for XAMPP (empty)
+    $dbname = "calisthenics_db"; // Name of your database
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    echo "Connected successfully";
+    ?>
+    ```
+
+3. Save the `conn.php` file after making changes.
+
+---
+
+## Step 2: Import the Database
+
+1. **Start XAMPP**:
+   - Open the XAMPP Control Panel.
+   - Start the `Apache` and `MySQL` services.
+
+2. **Access phpMyAdmin**:
+   - Open your browser and go to `http://localhost/phpmyadmin`.
+
+3. **Create a New Database**:
+   - In phpMyAdmin, click "New" in the left sidebar.
+   - Enter a name for your database (e.g., `calisthenics_db`) and click "Create".
+
+4. **Import the Database File**:
+   - Select the newly created database from the left sidebar.
+   - Click the "Import" tab at the top.
+   - Click "Choose File" and select the SQL file from the `database` folder of your project.
+   - Click "Go" to import the database.
+
+---
+
+## Step 3: Start the Application
+
+1. **Place the Project in the XAMPP Directory**:
+   - Move your project folder (e.g., `calisthenics_admin`) to the `htdocs` directory inside the XAMPP installation folder (usually `C:\xampp\htdocs`).
+
+2. **Access the Application**:
+   - Open your browser and navigate to `http://localhost/calisthenics_admin` (replace `calisthenics_admin` with the name of your project folder).
+
+3. **Verify the Connection**:
+   - If everything is set up correctly, you should see "Connected successfully" or a similar message.
+
+---
+
+## Step 4: Troubleshooting
+
+- **Connection Issues**: Double-check the `conn.php` file for typos or incorrect credentials.
+- **Database Import Issues**: Ensure the SQL file is not corrupted and matches the expected structure.
+- **XAMPP Issues**: Check the XAMPP Control Panel for error messages and ensure no other services are using the same ports (e.g., port 80 for Apache, port 3306 for MySQL).
+
+---
+
+## Step 5: Admin Access
+
+- **Login to the Admin Panel**: Navigate to the login page (e.g., `http://localhost/calisthenics_admin/admin/login.php`).
+- **Use Default Credentials**: email:admin@admin.com password:password.
+
+---
 
 ## Preview
+![1](https://github.com/user-attachments/assets/ca25f419-ee98-4b3a-929d-8d163a1ffb97)
+![2](https://github.com/user-attachments/assets/9434b0ca-0b59-4ee7-a26c-70d1199e3ea5)
+![3](https://github.com/user-attachments/assets/85bf7a86-4057-4b0e-b201-88dfceeaffe5)
+![4](https://github.com/user-attachments/assets/9895a8d2-2457-4eec-a49a-9bab3d27cd37)
+![5](https://github.com/user-attachments/assets/563fcef1-360a-4ca3-b9fd-e62a1da42710)
+![6](https://github.com/user-attachments/assets/3added9a-d715-4999-b1a1-e4e35ae2e30c)
+![7](https://github.com/user-attachments/assets/f1f95dc3-370a-49f3-a0cb-aafc96e83a4a)
 
-[![SB Admin 2 Preview](https://assets.startbootstrap.com/img/screenshots/themes/sb-admin-2.png)](https://startbootstrap.github.io/startbootstrap-sb-admin-2/)
+## Conclusion
 
-**[Launch Live Preview](https://startbootstrap.github.io/startbootstrap-sb-admin-2/)**
+You should now have the Calisthenics Admin system running on your local machine. If you encounter any issues, refer to the troubleshooting steps or consult the documentation for your specific application.
 
-## Status
+---
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/StartBootstrap/startbootstrap-sb-admin-2/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-sb-admin-2.svg)](https://www.npmjs.com/package/startbootstrap-sb-admin-2)
-[![Build Status](https://travis-ci.org/StartBootstrap/startbootstrap-sb-admin-2.svg?branch=master)](https://travis-ci.org/StartBootstrap/startbootstrap-sb-admin-2)
-[![dependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2/status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2)
-[![devDependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2/dev-status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-sb-admin-2?type=dev)
-
-## Download and Installation
-
-To begin using this template, choose one of the following options to get started:
-
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/theme/sb-admin-2/)
-* Install via npm: `npm i startbootstrap-sb-admin-2`
-* Clone the repo: `git clone https://github.com/StartBootstrap/startbootstrap-sb-admin-2.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
-
-## Usage
-
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
-
-### Gulp Tasks
-
-* `gulp` the default task that builds everything
-* `gulp watch` browserSync opens the project in your default browser and live reloads when changes are made
-* `gulp css` compiles SCSS files into CSS and minifies the compiled CSS
-* `gulp js` minifies the themes JS file
-* `gulp vendor` copies dependencies from node_modules to the vendor directory
-
-You must have npm installed globally in order to use this build environment. This theme was built using node v11.6.0 and the Gulp CLI v2.0.1. If Gulp is not running properly after running `npm install`, you may need to update node and/or the Gulp CLI locally.
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-sb-admin-2/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](https://startbootstrap.com/theme/sb-admin-2/).
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
-
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
-
-* <https://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
-
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2021 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE) license.
+**Happy Coding!** 🚀
